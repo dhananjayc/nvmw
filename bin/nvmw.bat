@@ -1,7 +1,7 @@
 @echo off
 
 setlocal
-for /f "tokens=2*" %%a in ('reg query HKEY_CURRENT_USER\Software\Node.js /v InstallPath') do set "node_path=%%b\node.exe"
+for /f "tokens=2*" %%a in ('reg query HKEY_LOCAL_MACHINE\SOFTWARE\Node.js /v InstallPath') do set "node_path=%%b\node.exe"
 if  exist "%node_path%" (
   "%node_path%" "%~dp0\..\lib\cli.js" %1 %2
   endlocal
